@@ -10,9 +10,9 @@ const ImageCompressionContext = createContext<IImageCompressionData>(
 export function ImageCompressionProvider({
   children
 }: IImageCompressionProps): JSX.Element {
-  const [imageFile, setImageFile] = useState<File>()
-  const [compressedFile, setCompressedFile] = useState<File>()
-  const [imageLink, setImageLink] = useState<string>()
+  const [imagesFiles, setImagesFiles] = useState<FileList>()
+  const [compressedFiles, setCompressedFiles] = useState<File[]>()
+  const [imagesLinks, setImagesLinks] = useState<string[]>()
   const [progress, setProgress] = useState<number>(0)
 
   const [maxSizeMB, setMaxSizeMB] = useState<number>(1)
@@ -22,15 +22,15 @@ export function ImageCompressionProvider({
     if (!event.target.files) {
       throw new Error('No image')
     }
-    const file = event.target.files[0]
+    const file = event.target.files
 
-    setImageFile(file)
+    setImagesFiles(file)
   }
 
   const compressImage = async (event: React.MouseEvent): Promise<void> => {
     event.preventDefault()
 
-    if (!imageFile) throw Error('No image')
+    if (!imagesFiles) throw Error('No image')
 
     const options = {
       maxSizeMB,
@@ -39,19 +39,48 @@ export function ImageCompressionProvider({
       onProgress: (p: number) => setProgress(p)
     }
 
-    if (options.maxSizeMB >= imageFile.size / 1024 / 1024) {
-      alert("Image is too small, can't be Compressed!") // Necessário Tratar
+    const promiseTempFiles: Array<File> = []
+
+    await Promise.all(
+      Array.from(imagesFiles).map(async file => {
+        if (options.maxSizeMB >= file.size / 1024 / 1024) {
+          alert("Image is too small, can't be Compressed!")
+        }
+
+        try {
+          promiseTempFiles.push(
+            await imageCompression(file, options).then(res => {
+              return res
+            })
+          )
+        } catch (error) {
+          console.log(error)
+        }
+      })
+    )
+
+    if (compressedFiles) {
+      setCompressedFiles([...compressedFiles, ...promiseTempFiles])
+    } else {
+      setCompressedFiles([...promiseTempFiles])
     }
 
-    try {
-      await imageCompression(imageFile, options).then(res => {
-        setCompressedFile(res)
-        const link = URL.createObjectURL(res)
+    const tempLinks: string[] = []
 
-        setImageLink(link)
+    promiseTempFiles.forEach(file => {
+      tempLinks.push(URL.createObjectURL(file))
+    })
+
+    setTimeout(() => {
+      tempLinks.forEach(link => {
+        URL.revokeObjectURL(link)
       })
-    } catch (error) {
-      console.log(error)
+    }, 60000)
+
+    if (imagesLinks) {
+      setImagesLinks([...imagesLinks, ...tempLinks])
+    } else {
+      setImagesLinks([...tempLinks])
     }
   }
 
@@ -63,9 +92,9 @@ export function ImageCompressionProvider({
     <ImageCompressionContext.Provider
       value={{
         states: {
-          imageFile,
-          compressedFile,
-          imageLink,
+          imagesFiles,
+          compressedFiles,
+          imagesLinks,
           maxSizeMB,
           maxWidthOrHeight,
           progress

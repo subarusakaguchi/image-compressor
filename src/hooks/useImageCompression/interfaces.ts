@@ -2,9 +2,9 @@ import { ReactNode } from 'react'
 
 interface IImageCompressionData {
   states: {
-    imageFile: File | undefined
-    compressedFile: File | undefined
-    imageLink: string | undefined
+    imagesFiles: FileList | undefined
+    compressedFiles: File[] | undefined
+    imagesLinks: string[] | undefined
     maxSizeMB: number
     maxWidthOrHeight: number
     progress: number

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './styles.module.scss'
-import { ImageLoadArea } from '../imageLoadArea/indext'
+import { ImageLoadArea } from '../ImageLoadArea/indext'
 import { useImageCompression } from '../../hooks/useImageCompression/useImageCompression'
 
 export function Form() {
@@ -30,7 +30,12 @@ export function Form() {
         onChange={e => functions.maxHeightOrWidth(Number(e.target.value))}
       />
       <label>
-        <input type="file" accept="image/*" onChange={handleLoadImage} />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleLoadImage}
+          multiple
+        />
         Clique para fazer o Upload
       </label>
       <ImageLoadArea />
