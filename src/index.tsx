@@ -2,8 +2,9 @@ import ReactDOM from 'react-dom/client'
 import React from 'react'
 
 import './styles/global.scss'
+import { ImageCompressionProvider } from './hooks/useImageCompression'
 import { Header } from './components/Header'
-import { Form } from './components/Form'
+import { FormContainer } from './components/FormContainer'
 import { Footer } from './components/Footer'
 import { App } from './App'
 
@@ -16,9 +17,11 @@ import { App } from './App'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <Header />
-    <Form />
-    {/* <App /> */}
-    <Footer />
+    <ImageCompressionProvider>
+      <Header />
+      <FormContainer />
+      {/* <App /> */}
+      <Footer />
+    </ImageCompressionProvider>
   </React.StrictMode>
 )

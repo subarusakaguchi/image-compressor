@@ -1,100 +1,84 @@
-.bodyContainer {
+.formContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 
-  div {
-    margin: 2rem auto;
-    padding: 2rem;
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 1rem;
+  }
+
+  span {
+    color: var(--gray-800);
+    font-weight: bold;
+  }
+
+  input + span {
+    margin-top: 1rem;
+  }
+
+  input {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  input[type="number"] {
+    margin-top: 0.5rem;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  input[type="submit"] {
+    background-color: var(--green-400);
+    color: var(--white);
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+
+  label {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid var(--gray-800);
+
+    background-color: var(--white);
+    color: var(--black);
+
     border-radius: 0.5rem;
 
-    height: 35rem;
-    width: 30rem;
-    background-color: var(--gray-400);
+    cursor: pointer;
 
-    form {
-      display: flex;
-      flex-direction: column;
+    transition: filter 0.2s;
 
-      section {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        margin-bottom: 1rem;
-      }
-
-      span {
-        color: var(--gray-800);
-        font-weight: bold;
-      }
-
-      input + span {
-        margin-top: 1rem;
-      }
-
-      input {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-      }
-
-      input[type="number"] {
-        margin-top: 0.5rem;
-      }
-
-      input[type="file"] {
-        display: none;
-      }
-
-      input[type="submit"] {
-        background-color: var(--green-400);
-        color: var(--white);
-        font-weight: bold;
-
-        cursor: pointer;
-
-        transition: filter 0.2s;
-
-        &:hover {
-          filter: brightness(0.8);
-        }
-      }
-
-      label {
-        margin: 1rem 0;
-        padding: 0.5rem;
-        display: inline-block;
-        text-align: center;
-        font-weight: bold;
-        border: 1px solid var(--gray-800);
-
-        background-color: var(--white);
-        color: var(--black);
-
-        border-radius: 0.5rem;
-
-        cursor: pointer;
-
-        transition: filter 0.2s;
-
-        &:hover {
-          filter: brightness(0.8);
-        }
-      }
+    &:hover {
+      filter: brightness(0.8);
     }
+  }
+}
 
-    form + section {
-      margin-top: 1rem;
+form + section {
+  margin-top: 1rem;
 
-      a {
-        color: var(--gray-800);
-        font-weight: bold;
+  a {
+    color: var(--gray-800);
+    font-weight: bold;
 
-        transition: filter 0.2s;
+    transition: filter 0.2s;
 
-        &:hover {
-          filter: brightness(2);
-        }
-      }
+    &:hover {
+      filter: brightness(2);
     }
   }
 }
