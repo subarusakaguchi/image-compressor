@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './styles.module.scss'
-import { ImageLoadArea } from '../ImageLoadArea/indext'
+import { ImageLoadArea } from '../ImageLoadArea'
 import { useImageCompression } from '../../hooks/useImageCompression/useImageCompression'
 
 export function Form() {
