@@ -12,4 +12,19 @@
   height: 35rem;
   width: 30rem;
   background-color: var(--gray-400);
+
+  form + section {
+    margin-top: 1rem;
+
+    a {
+      color: var(--gray-800);
+      font-weight: bold;
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(2);
+      }
+    }
+  }
 }

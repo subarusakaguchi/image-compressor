@@ -2,13 +2,6 @@
   display: flex;
   flex-direction: column;
 
-  section {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-bottom: 1rem;
-  }
-
   span {
     color: var(--gray-800);
     font-weight: bold;
@@ -64,21 +57,6 @@
 
     &:hover {
       filter: brightness(0.8);
-    }
-  }
-}
-
-form + section {
-  margin-top: 1rem;
-
-  a {
-    color: var(--gray-800);
-    font-weight: bold;
-
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(2);
     }
   }
 }

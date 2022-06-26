@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import styles from './styles.module.scss'
 import { Form } from '../Form'
-import { useImageCompression } from '../../hooks/useImageCompression'
+import { useImageCompression } from '../../hooks/useImageCompression/useImageCompression'
 
 export function FormContainer() {
   const { states } = useImageCompression()
@@ -16,8 +16,8 @@ export function FormContainer() {
       states.compressedFile &&
       states.imageLink
     ) {
-      const [name, type]: string[] = states.imageFile.name.split('.')
-      const imageCompressedName = name + '-compressed'
+      const name: string[] = states.imageFile.name.split('.')
+      const imageCompressedName = name[0] + '-compressed'
       resArea.innerHTML = `<a href="${states.imageLink}" download="${imageCompressedName}">${states.imageFile?.name}</a>`
     }
   })

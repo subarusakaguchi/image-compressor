@@ -1,10 +1,15 @@
 import React from 'react'
 
 import styles from './styles.module.scss'
-import { useImageCompression } from '../../hooks/useImageCompression'
+import { ImageLoadArea } from '../imageLoadArea/indext'
+import { useImageCompression } from '../../hooks/useImageCompression/useImageCompression'
 
 export function Form() {
-  const { states, setStates } = useImageCompression()
+  const { states, functions } = useImageCompression()
+
+  const handleLoadImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    functions.inputHandler(event)
+  }
 
   return (
     <form className={styles.formContainer}>
@@ -14,7 +19,7 @@ export function Form() {
         name="maxSizeMB"
         id="maxSizeMB"
         value={states.maxSizeMB}
-        onChange={e => setStates.maxSize(Number(e.target.value))}
+        onChange={e => functions.maxSize(Number(e.target.value))}
       />
       <span>Comprimento/Altura máximo da imagem final (em px): </span>
       <input
@@ -22,29 +27,17 @@ export function Form() {
         name="maxWidthOrHeight"
         id="maxWidthOrHeight"
         value={states.maxWidthOrHeight}
-        onChange={e => setStates.maxHeightOrWidth(Number(e.target.value))}
+        onChange={e => functions.maxHeightOrWidth(Number(e.target.value))}
       />
       <label>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            const loadedImage = setStates.inputHandler(event)
-
-            const imageLoadArea = document.getElementById('imageLoad')
-
-            if (imageLoadArea) {
-              imageLoadArea.appendChild(loadedImage)
-            }
-          }}
-        />
+        <input type="file" accept="image/*" onChange={handleLoadImage} />
         Clique para fazer o Upload
       </label>
-      <section id="imageLoad"></section>
+      <ImageLoadArea />
       <input
         type="submit"
         value="COMPACTAR"
-        onClick={setStates.compressImage}
+        onClick={functions.compressImage}
       />
     </form>
   )
