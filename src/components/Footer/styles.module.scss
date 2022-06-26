@@ -1,0 +1,20 @@
+.footerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-weight: 700;
+    color: var(--gray-400);
+
+    a {
+      color: var(--gray-800);
+
+      transition: filter 0.2s;
+    }
+
+    a:hover {
+      filter: brightness(2);
+    }
+  }
+}
