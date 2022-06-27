@@ -30,7 +30,7 @@ export function ImageCompressionProvider({
   const compressImage = async (event: React.MouseEvent): Promise<void> => {
     event.preventDefault()
 
-    if (!imagesFiles) throw Error('No image')
+    if (!imagesFiles) throw new Error('No image')
 
     const options = {
       maxSizeMB,
@@ -44,7 +44,7 @@ export function ImageCompressionProvider({
     await Promise.all(
       Array.from(imagesFiles).map(async file => {
         if (options.maxSizeMB >= file.size / 1024 / 1024) {
-          alert("Image is too small, can't be Compressed!")
+          throw new Error("Image is too small, can't be Compressed!")
         }
 
         try {
