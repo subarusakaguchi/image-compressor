@@ -1,8 +1,8 @@
 # Image Compressor
-Projeto com auxílio da biblioteca (Browser Image Compression)[https://github.com/Donaldcwl/browser-image-compression], com a finalidade de melhorar e concretizar conhecimentos básicos de (React)[https://pt-br.reactjs.org/].
+Projeto com auxílio da biblioteca [Browser Image Compression](https://github.com/Donaldcwl/browser-image-compression), com a finalidade de melhorar e concretizar conhecimentos básicos de [React](https://pt-br.reactjs.org/).
 
 # Quais tecnologias foram utilizadas?
-O projeto foi feito em React (React, (React-dom)[https://www.npmjs.com/package/react-dom] e (React-scripts)[https://www.npmjs.com/package/react-scripts]) com auxílio da biblioteca Browser Image Compression, além disso para complementar o processo de elaboração de design foram utilizados o (SASS)[https://github.com/sass/sass] (no formato .SCSS) e o (React-progress-bar)[https://www.npmjs.com/package/@ramonak/react-progress-bar].
+O projeto foi feito em React (React, [React-dom](https://www.npmjs.com/package/react-dom) e [React-scripts](https://www.npmjs.com/package/react-scripts)) com auxílio da biblioteca Browser Image Compression, além disso para complementar o processo de elaboração de design foram utilizados o [SASS](https://github.com/sass/sass) (no formato .SCSS) e o[React-progress-bar](https://www.npmjs.com/package/@ramonak/react-progress-bar).
 
 Para auxiliar no desenvolvimento também foi padronizado o código com ESLINT e Prettier, utilizando o StyleGuide Standard, ademais o projeto foi feito em Typescript, para assegurar um melhor controle sobre as variáveis e os valores a serem repassados.
 
