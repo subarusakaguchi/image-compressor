@@ -18,7 +18,7 @@ O projeto inicialmente foi pensado num formato de arquivo único, e logo após f
 # O que consegui aprender com este projeto?
 Consegui experienciar melhor a forma de trabalhar com Componentes em React, com isto consegui vizualizar uma boa organização de código para torná-lo mais limpo e subdívidido, este processo foi exponencializado com o meu aprendizado de Contexto e Hooks, que ajudam a distribuir os dados ao longo de todo a aplicação, facilitando o processo de repasse de informações necessárias para as partes que realmente precisam.
 
-Outros pontos mais técnicos estão em aprender a utilizar **Promises** em Loops, experienciar as várias forams que os dois prodem trabalhar juntos para gerar o resultado esperado, além de entender pontos mais específicos como diferença entre Listas de Arquivos (````File[]```) e ```FileList``` por exemplo, que variam basicamente na finalidade de uso de variáveis, além da própria interação desses formatos com o resto do código.
+Outros pontos mais técnicos estão em aprender a utilizar **Promises** em Loops, experienciar as várias forams que os dois prodem trabalhar juntos para gerar o resultado esperado, além de entender pontos mais específicos como diferença entre Listas de Arquivos (```File[]```) e ```FileList``` por exemplo, que variam basicamente na finalidade de uso de variáveis, além da própria interação desses formatos com o resto do código.
 
 # Possibiliades de melhoria?
 Para este projeto, penso que há muito a ser melhorado em termos de design, cores, UI e UX, e na parte de código mais técnica mesmo de como arquiteturar uma aplicação, que poderia vir a ser mais escalonável.
