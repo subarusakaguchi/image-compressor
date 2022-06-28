@@ -1,4 +1,6 @@
 # Image Compressor
+![image](https://user-images.githubusercontent.com/50173813/176173918-06536355-9f57-42c9-9a73-20972f4972dc.png)
+
 Projeto com auxílio da biblioteca [Browser Image Compression](https://github.com/Donaldcwl/browser-image-compression), com a finalidade de melhorar e concretizar conhecimentos básicos de [React](https://pt-br.reactjs.org/).
 
 [Veja a demo aqui!](https://image-compressor-orcin.vercel.app/)
